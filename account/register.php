@@ -12,8 +12,9 @@ require_once '../includes/db_connection.php';
 require_once '../includes/config.php';
 
 $is_loggedin = is_loggedin();
+// Only Guest user can access this page
 if ($is_loggedin == true) {
-    header("location: ../index.php");
+    header("location: " . $home_url . "index.php");
     exit;
 }
 
@@ -78,7 +79,7 @@ require_once '../includes/navigation.php';
             <h1>Welcome to <?php echo $title; ?></h1>
             <p class="lead">Please fill in your correct info to Register.</p>
         </div>
-        <form action="register.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="mb-3">
                 <label for="name" class="form-label">Full Name</label>
                 <input type="text" name="name" class="form-control" id="name" value="<?php echo $name; ?>" aria-describedby="nameHelp">

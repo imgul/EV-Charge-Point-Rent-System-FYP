@@ -24,10 +24,10 @@ function alert($alert_type, $alert_message)
     ';
 }
 
-// Check if the user is logged in, if not then redirect him to login page
+// Check if the user is logged in
 function is_loggedin()
 {
-    if (isset($_SESSION["user_id"]) || $_SESSION["loggedin"] == true) {
+    if (isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] == true) {
         return true;
     }
 }

@@ -9,8 +9,8 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<?php echo $home_url; ?>">Home</a>
         </li>
-        <!-- Login, Register Page if loggedin -->
-        <?php if ($is_loggedin == false) : ?>
+        <!-- Login, Register Page -->
+        <?php if ($is_loggedin !== true) : ?>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $home_url; ?>account/login.php">Login</a>
           </li>
@@ -18,21 +18,30 @@
             <a class="nav-link" href="<?php echo $home_url; ?>account/register.php">Register</a>
           </li>
         <?php else : ?>
-          <!-- Logout Page if loggedin -->
+          <!-- Bookings -->
           <li class="nav-item">
-            <a class="nav-link" href="<?php echo $home_url; ?>account/logout.php">Logout</a>
+            <a class="nav-link" href="<?php echo $home_url; ?>account/bookings.php">Bookings</a>
           </li>
-          <!-- Profile Page if loggedin -->
+          <!-- Listings -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $home_url; ?>account/my-listings.php">Listings</a>
+          </li>
+          <!-- Profile Page -->
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $home_url; ?>account/profile.php">Profile</a>
+          </li>
+          <!-- Logout Page -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $home_url; ?>account/logout.php">Logout</a>
           </li>
         <?php endif; ?>
       </ul>
       <!-- List EV Charge Point Button -->
-      <a href="<?php echo $home_url; ?>EV-Charge/become-provider.php" class="text-dark">
-        <button class="btn btn-warning">List EV Charge Point</button>
-      </a>
-
+      <?php if ($is_loggedin == true) : ?>
+        <a href="<?php echo $home_url; ?>EV-Charge/become-provider.php" class="text-dark">
+          <button class="btn btn-warning">List EV Charge Point</button>
+        </a>
+      <?php endif; ?>
     </div>
   </div>
 </nav>

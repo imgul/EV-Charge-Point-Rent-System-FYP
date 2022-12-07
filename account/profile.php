@@ -16,8 +16,9 @@ require_once '../includes/db_connection.php';
 require_once '../includes/config.php';
 
 $is_loggedin = is_loggedin();
+// Guest User cannot access this page
 if ($is_loggedin == false) {
-    header("location: ../index.php");
+    header("location: " . $home_url . "account/login.php");
     exit;
 }
 

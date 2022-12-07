@@ -15,8 +15,9 @@ require_once '../includes/db_connection.php';
 require_once '../includes/config.php';
 
 $is_loggedin = is_loggedin();
+// Only Guest user can access this page
 if ($is_loggedin == true) {
-    header("location: ../index.php");
+    header("location: " . $home_url . "index.php");
     exit;
 }
 
@@ -87,7 +88,7 @@ require_once '../includes/navigation.php';
             <h1>Welcome Back</h1>
             <p class="lead">Please fill in your credentials to login.</p>
         </div>
-        <form action="login.php" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" name="email" class="form-control" id="email" value="<?php echo $email; ?>" aria-describedby="emailHelp">
