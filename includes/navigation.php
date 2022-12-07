@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-primary navbar-dark">
+<nav class="navbar navbar-expand-lg bg-light navbar-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="<?php echo $home_url; ?>"><?php echo $title; ?></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,12 +22,17 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $home_url; ?>account/logout.php">Logout</a>
           </li>
+          <!-- Profile Page if loggedin -->
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $home_url; ?>account/profile.php">Profile</a>
+          </li>
         <?php endif; ?>
       </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-light" type="submit">Search</button>
-      </form>
+      <!-- List EV Charge Point Button -->
+      <a href="<?php echo $home_url; ?>EV-Charge/become-provider.php" class="text-dark">
+        <button class="btn btn-warning">List EV Charge Point</button>
+      </a>
+
     </div>
   </div>
 </nav>
